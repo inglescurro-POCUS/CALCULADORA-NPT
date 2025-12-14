@@ -156,8 +156,9 @@ def main():
         kcal_kg = st.number_input("Calorías Objetivo (kcal/kg/d)", 10, 50, 25)
         
         # Start Phase Slider
-        start_pct = st.slider("Fase de Inicio (% de meta)", 0.25, 1.0, 0.8, 0.05, format="%d%%")
-        st.caption(f"Día actual: {int(start_pct*100)}% de la meta")
+        start_pct_int = st.slider("Fase de Inicio (% de meta)", 25, 100, 80, 5, format="%d%%")
+        start_pct = start_pct_int / 100.0
+        st.caption(f"Día actual: {start_pct_int}% de la meta")
 
         prot_kg = st.number_input("Proteínas (g/kg/d)", 0.5, 3.0, 1.5, step=0.1)
 
