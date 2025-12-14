@@ -272,12 +272,28 @@ def main():
         8. **Monitorizar**: Glucemia 140-180, TG < 400.
         """)
 
-        st.info("""
-        **Notas de Seguridad:**
-        - Máx Glucosa: 5 g/kg/d.
-        - Lípidos: 0.7-1.5 g/kg/d. (TG > 400 → Pausar).
-        - EPOC: Reducir carga glucosa si retención CO₂.
-        """)
+        st.subheader("Notas de seguridad, trucos y errores")
+        
+        with st.expander("Precauciones clave", expanded=True):
+            st.warning("""
+            *   **Máximo glucosa:** ≤ 5 g/kg/día (≈ ≤ 5 mg/kg/min). Mantén menor aporte si hiperglucemia o EPOC.
+            *   **Lípidos:** 0,7–1,0 g/kg/día (máx. 1,5). Triglicéridos: si >400 mg/dL → reduce/pausa lípidos.
+            *   **EPOC / hipercapnia:** favorece distribución con menor carga de glucosa (p.ej., 50–60% de no proteicas) y evita superar los límites de infusión de glucosa para no aumentar la producción de CO₂.
+            *   **Zinc extra:** 10–20 mg/d si fístulas, grandes pérdidas, diarrea o quemaduras.
+            *   **Riesgo de realimentación / desnutrición:** iniciar al 25–50% + tiamina 100–200 mg IV/d y monitorizar estrechamente P–K–Mg.
+            """)
+
+        with st.expander("Trucos y errores frecuentes"):
+            st.info("""
+            *   **Error:** dar 100% de kcal desde el día 1 → *Mejor*: 70–80% y subir.
+            *   **Error:** olvidar vitaminas/oligoelementos → *Siempre* añadirlos.
+            *   **Error:** exceder glucosa (>5 g/kg/d) → hiperglucemia/↑CO₂.
+            *   **Error:** no vigilar **P** al inicio → riesgo de **realimentación**.
+            *   **Error:** ignorar **TG** → si >400 mg/dL, reduce lípidos.
+            *   **Error:** no considerar **peso ajustado** en obesidad → sobreestimación.
+            *   **Tip:** prioriza **proteína plena** aunque kcal sean hipocalóricas los primeros días.
+            *   **Tip:** documenta **Balance N** 1–2/sem para seguir el catabolismo.
+            """)
         
     with t2:
         weight_lbl = f"PA {weight_calc:.1f}" if is_obese else f"{weight_calc:.1f}"
